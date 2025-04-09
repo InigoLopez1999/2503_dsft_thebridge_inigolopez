@@ -1,0 +1,23 @@
+Security footage shows that there were 2 witnesses. The first witness lives at the last house on "Northwestern Dr". The second witness, named Annabel, lives somewhere on "Franklin Ave".
+
+Testigo 1: Morty Schapiro
+Testigo 2: Annabell Miller
+
+Testimonio Morty: I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The membership number on the bag started with "48Z". Only gold members have those bags. The man got into a car with a plate that included "H42W".
+
+--> Del testimonio de Morty y comprobando su id de gimnasio tenemos a dos sospechosos: Joe Germuska y Jeremy Bowers. Ahora falta ver cuál de los dos tiene esa matrícula de coche.
+
+
+Testimonio Annabell: I saw the murder happen, and I recognized the killer from my gym when I was working out last week on January the 9th.
+
+Buscamos entonces al propietario de un coche con una matrícula que incluye "H42W" que es miembro gold del gimnasio con membership number que comienza con 48Z y que estuvo en el gimnasio el 9 de enero.
+El asesino es Jeremy Bowers
+
+-------Segunda parte--------
+
+Testimonio de Jeremy Bowers:"I was hired by a woman with a lot of money. I don't know her name but I know she's around 5'5"" (65"") or 5'7"" (67""). She has red hair and she drives a Tesla Model S. I know that she attended the SQL Symphony Concert 3 times in December 2017."
+
+Sabemos las características físicas de la mujer detrás del crimen que contrató a Jeremy. En las licencias de conducir podremos filtrar en función de las descripciones del asesino.
+Hay 3 mujeres con pelo rojo y esa marca de coche. Ahora falta ver cuál de ellas asistió 3 veces al SQL Symphony Concert.
+
+La mente detrás del asesinato es Miranda Priestly
