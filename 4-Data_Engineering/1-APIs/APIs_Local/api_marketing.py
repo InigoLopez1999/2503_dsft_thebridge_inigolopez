@@ -40,26 +40,4 @@ def predict():
     
     return jsonify({'predictions': prediction[0]})
 
-@app.route('/v1/retrain', methods=['GET'])
-def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
-    if os.path.exists("data/Advertising_new.csv"):
-        data = pd.read_csv('data/Advertising_new.csv')
-
-        X_train, X_test, y_train, y_test = train_test_split(data.drop(columns=['sales']),
-                                                        data['sales'],
-                                                        test_size = 0.20,
-                                                        random_state=42)
-
-        model = Lasso(alpha=6000)
-        model.fit(X_train, y_train)
-        rmse = np.sqrt(mean_squared_error(y_test, model.predict(X_test)))
-        mape = mean_absolute_percentage_error(y_test, model.predict(X_test))
-        model.fit(data.drop(columns=['sales']), data['sales'])
-        pickle.dump(model, open('ad_model.pkl', 'wb'))
-
-        return f"Model retrained. New evaluation metric RMSE: {str(rmse)}, MAPE: {str(mape)}"
-    else:
-        return f"<h2>New data for retrain NOT FOUND. Nothing done!</h2>"
-
-
 app.run()
