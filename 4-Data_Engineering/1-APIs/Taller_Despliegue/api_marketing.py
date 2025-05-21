@@ -7,21 +7,28 @@ import pickle
 import os
 from flask import Flask, jsonify, request, abort
 
+
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
+print("El fichero que se está ejecutando es:")
+print(__file__)
+
+
+
+print("... que está en el directorio:")
+print(os.path.dirname(__file__))
 os.chdir(os.path.dirname(__file__))
+
 
 # End Point "/"
 @app.route('/', methods=['GET'])
 def home():
-    return "<h1>My API</h1><p>Esta es una API para predicción de ventas en función de la inversión en marketing.</p>"
+    return "<h1>My API</h1><p>Ésta es una API para predicción de ventas en función de inversión en marketing.</p>"
+
 
 @app.route('/v1/predict', methods=['GET'])
 def predict():
-    # Cargar el modelo
-    # Obtener los parámetros del request
-    # Hacer la predicción y devolverla
     model = pickle.load(open('ad_model.pkl','rb'))
     tv = request.args.get('tv', None)
     radio = request.args.get('radio', None)
@@ -34,11 +41,12 @@ def predict():
         return "Args empty, the data are not enough to predict"
     else:
         prediction = model.predict([[float(tv),float(radio),float(newspaper)]])
-    
+    # [[float(tv),float(radio),float(newspaper)]]
+    # [pred1]
     return jsonify({'predictions': prediction[0]})
 
 @app.route('/v1/retrain', methods=['GET'])
-def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
+def retrain():
     if os.path.exists("data/Advertising_new.csv"):
         data = pd.read_csv('data/Advertising_new.csv')
 
@@ -57,5 +65,10 @@ def retrain(): # Rutarlo al endpoint '/api/v1/retrain/', metodo GET
         return f"Model retrained. New evaluation metric RMSE: {str(rmse)}, MAPE: {str(mape)}"
     else:
         return f"<h2>New data for retrain NOT FOUND. Nothing done!</h2>"
+
+
+
+
+
 
 app.run()
